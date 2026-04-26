@@ -11,7 +11,7 @@ def lire_csv_formations(nom_fichier):
             formations.append(ligne)
     return formations
 
-print(lire_csv_formations("800.csv"))
+
 
 def lire_csv_candidats(nom_fichier):
     candidats = []
