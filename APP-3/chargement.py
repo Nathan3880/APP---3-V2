@@ -21,5 +21,3 @@ def lire_csv_candidats(nom_fichier):
         for ligne in lecteur:
             candidats.append(ligne)
     return candidats
-
-print(lire_csv_candidats("parcoursup_small_10000.csv"))
