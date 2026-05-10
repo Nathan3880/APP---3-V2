@@ -23,6 +23,4 @@ def candidature_program(id_program):
         if candidat["program_id"] == id_program:
             liste_etudiant.append(candidat["candidate_id"])
             compteur += 1
-    return f"{compteur} candidats postulent pour cette formation.\nLes identifiants de ces candidats sont : {liste_etudiant}"
-
-print(candidature_program("132"))
+    return (compteur, liste_etudiant)

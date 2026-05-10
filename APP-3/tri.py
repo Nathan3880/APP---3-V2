@@ -1,4 +1,6 @@
 # Implémentation des algorithmes de tri 
+from chargement import*
+
 
 def tri_insertion(liste):
     
@@ -11,7 +13,8 @@ def tri_insertion(liste):
             arr[j + 1] = arr[j]
             j = j -1
         arr[j + 1] = en_cours
- 
+    
+    
     return arr
  
 
@@ -25,6 +28,7 @@ def tri_bulles(liste):
                 arr[j], arr[j + 1] = arr[j + 1], arr[j]
  
     return arr
+
 
 
 # Je suis pas sûr que ça marche mais j'ai adapté les codes de tri du cours à notre cas, en triant les étudiants par score décroissant.
