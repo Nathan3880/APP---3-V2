@@ -21,5 +21,5 @@ def parcoursup(id_program,tri):
             attente.append(x["candidate_id"])
         return f"Les étudiants admis sont {admis}.\nLes étudiants en file d'attente sont {attente}."
 
-print(parcoursup("1",tri_fusion))
+print(parcoursup("1",tri_rapide))
 

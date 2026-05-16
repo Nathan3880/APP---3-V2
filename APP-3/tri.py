@@ -29,6 +29,8 @@ def tri_bulles(liste):
  
     return arr
 
+
+
 def fusion(liste1,liste2):
     liste = []
     i,j = 0,0
@@ -47,7 +49,6 @@ def fusion(liste1,liste2):
         j+=1
     return liste
 
-
 def tri_fusion(liste):
     if len(liste) < 2:
         return liste
@@ -56,6 +57,20 @@ def tri_fusion(liste):
         liste1 = tri_fusion(liste[:milieu])
         liste2 = tri_fusion(liste[milieu:])
     return fusion(liste1,liste2)
+
+
+
+def tri_rapide(liste):
+    if len(liste) < 2:
+        return liste
+    l1,l2 = [],[]
+    e = liste[0]
+    for x in liste[1:]:
+        if x["score"] > e["score"]:
+            l1.append(x)
+        else:
+            l2.append(x)
+    return tri_rapide(l1) + [e] + tri_rapide(l2)
 
 
 
