@@ -6,16 +6,13 @@ def parcoursup(id_program,tri):
     admis, attente = [], []
     candidatures = candidature_program(id_program)
     capacite = int(info_program(id_program)["capacity"])
-    liste_candidats_ids = candidatures[1]
+    liste_candidats = candidatures[1]
 
     if capacite >= candidatures[0]:
-        admis.extend(liste_candidats_ids)
+        admis.extend(liste_candidats)
         return f"Les étudiants admis sont {admis}."
 
     else:
-        liste_candidats = []
-        for i in liste_candidats_ids:
-            liste_candidats.append(info_etudiant(i))
         
         liste_triee = tri(liste_candidats)
         for v in range(capacite):
@@ -24,5 +21,5 @@ def parcoursup(id_program,tri):
             attente.append(x["candidate_id"])
         return f"Les étudiants admis sont {admis}.\nLes étudiants en file d'attente sont {attente}."
 
-print(parcoursup("2",tri_insertion))
+print(parcoursup("1",tri_fusion))
 

@@ -21,6 +21,6 @@ def candidature_program(id_program):
     liste_etudiant = []
     for candidat in lire_csv_candidats("parcoursup_small_10000.csv"):
         if candidat["program_id"] == id_program:
-            liste_etudiant.append(candidat["candidate_id"])
+            liste_etudiant.append(candidat)
             compteur += 1
     return (compteur, liste_etudiant)
