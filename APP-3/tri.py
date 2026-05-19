@@ -1,17 +1,23 @@
 # Implémentation des algorithmes de tri 
 from chargement import*
 
+policy_1 = "score"
+policy_2 = "timestamp"
 
 def tri_insertion(liste):
-    
     arr = liste[:]
- 
     for i in range(1, len(arr)):
         en_cours = arr[i]
         j = i - 1
-        while j >= 0 and arr[j]["score"] < en_cours["score"]:
+        policy = policy_1
+        if arr[j][policy] == en_cours[policy]:
+            policy = policy_2
+        while j >= 0 and arr[j][policy] < en_cours[policy]:
             arr[j + 1] = arr[j]
             j = j -1
+            policy = policy_1
+            if arr[j][policy] == en_cours[policy]:
+                policy = policy_2
         arr[j + 1] = en_cours
     
     
@@ -21,10 +27,12 @@ def tri_insertion(liste):
 def tri_bulles(liste):
     arr = liste[:]
     n = len(arr)
-
     for i in range(n):
         for j in range(0, n - i - 1):
-            if arr[j]["score"] < arr[j + 1]["score"]:
+            policy = policy_1
+            if arr[j][policy] == arr[j + 1][policy]:
+                policy = policy_2
+            if arr[j][policy] < arr[j + 1][policy]:
                 arr[j], arr[j + 1] = arr[j + 1], arr[j]
  
     return arr
@@ -35,7 +43,10 @@ def fusion(liste1,liste2):
     liste = []
     i,j = 0,0
     while i < len(liste1) and j <len(liste2):
-        if liste1[i]["score"] > liste2[j]["score"]:
+        policy = policy_1
+        if liste1[i][policy] == liste2[j][policy]:
+            policy = policy_2
+        if liste1[i][policy] > liste2[j][policy]:
             liste.append(liste1[i])
             i+=1
         else:
@@ -66,7 +77,10 @@ def tri_rapide(liste):
     l1,l2 = [],[]
     e = liste[0]
     for x in liste[1:]:
-        if x["score"] > e["score"]:
+        policy = policy_1
+        if x[policy] == e[policy]:
+            policy = policy_2
+        if x[policy] > e[policy]:
             l1.append(x)
         else:
             l2.append(x)
