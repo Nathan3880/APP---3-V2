@@ -2,6 +2,7 @@ from chargement import*
 from formatage import*
 from tri import*
 from performances import*
+from timeit import*
 import matplotlib.pyplot as plt
 
 fichier_candidats = input("Entrez un fichier de candidats : ")
@@ -12,4 +13,7 @@ candidats_liste = lire_csv_candidats(fichier_candidats)
 formations_liste = lire_csv_formations(fichier_formations)
 print(parcoursup(id_formation,candidats_liste,formations_liste,tri_rapide))
 print("-------------------------------------------------------------------------------------------------------")
-print(performances(id_formation,candidats_liste,formations_liste,tri_rapide))
+print(f"Le tri a pris {performances(id_formation,candidats_liste,formations_liste,tri_rapide)} secondes pour définir l'ordre de priorité")
+
+graphique_perf(id_formation, formations_liste)
+
