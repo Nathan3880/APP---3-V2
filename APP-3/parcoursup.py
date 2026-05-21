@@ -2,10 +2,10 @@
 from chargement import*
 from formatage import*
 from tri import*
-def parcoursup(id_program,tri):
+def parcoursup(id_program,candidats_liste,formations_liste, tri):
     admis, attente = [], []
-    candidatures = candidature_program(id_program)
-    capacite = int(info_program(id_program)["capacity"])
+    candidatures = candidature_program(id_program, candidats_liste)
+    capacite = int(info_program(id_program, formations_liste)["capacity"])
     liste_candidats = candidatures[1]
 
     if capacite >= candidatures[0]:
@@ -19,5 +19,5 @@ def parcoursup(id_program,tri):
             admis.append(liste_triee[v]["candidate_id"])
         for x in liste_triee[capacite:]:
             attente.append(x["candidate_id"])
-        return f"Les étudiants admis sont {admis}.\nLes étudiants en file d'attente sont {attente}."
+        return f"Les étudiants admis sont {admis}.\n-------------------------------------------------------------------------------------------------------\n Les étudiants en file d'attente sont {attente}."
 
